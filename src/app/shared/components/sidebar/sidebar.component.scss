@@ -1,0 +1,21 @@
+.side-nav2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1040;
+    width: 15rem;
+    height: 100%;
+    padding: 0;
+    padding-bottom: 3.75rem;
+    margin: 0;
+    overflow: hidden;
+    list-style-type: none;
+    background-color: #2c2f34;
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    will-change: transform;
+}
