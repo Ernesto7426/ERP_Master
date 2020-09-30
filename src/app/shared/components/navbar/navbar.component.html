@@ -1,10 +1,478 @@
-<mat-toolbar color="primary" class="fixed-top" style="height: 10px;">
-    <mat-toolbar-row>
-        <a data-activates="slide-out" class="button-collapse black-text">
-            <i class="fa fa-bars"></i>
-        </a>
-        <!-- <i class="fa fa-bars" aria-hidden="true"></i> -->
-        <!-- <span>Menu</span> -->
-    </mat-toolbar-row>
-</mat-toolbar>
-
+<div class="app-header">
+<header class="MuiPaper-root MuiAppBar-root MuiAppBar-positionFixed MuiAppBar-colorPrimary app-main-header mui-fixed MuiPaper-elevation4">
+<div class="MuiToolbar-root MuiToolbar-regular app-toolbar MuiToolbar-gutters">
+    <!-- <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a> -->
+    <button class="MuiButtonBase-root MuiIconButton-root jr-menu-icon mr-3 d-block sidenav-trigger" data-target="slide-out" tabindex="0" type="button" aria-label="Menu">
+        <span class="MuiIconButton-label">
+            <span class="menu-icon"></span>
+        </span>
+        <span class="MuiTouchRipple-root"></span>
+    </button>
+    <a class="app-logo mr-2 d-none d-sm-block" href="/">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALEAAABBCAYAAACeu0XcAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQ1IDc5LjE2MzQ5OSwgMjAxOC8wOC8xMy0xNjo0MDoyMiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTkgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RTQ0REUyMUIyNDRCMTFFOUEyQ0RBNDM5QUIzQkVBOUUiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RTQ0REUyMUMyNDRCMTFFOUEyQ0RBNDM5QUIzQkVBOUUiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpFNDRERTIxOTI0NEIxMUU5QTJDREE0MzlBQjNCRUE5RSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpFNDRERTIxQTI0NEIxMUU5QTJDREE0MzlBQjNCRUE5RSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PnOGDjMAABjaSURBVHja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" alt="Jambo" title="Jambo">
+    </a>
+    <div class="search-bar right-side-icon bg-transparent d-none d-lg-block">
+        <div class="form-group">
+            <input class="form-control border-0" type="search" placeholder="" value="">
+            <button class="search-icon">
+                <i class="zmdi zmdi-search zmdi-hc-lg"></i>
+            </button>
+        </div>
+    </div>
+    <ul class="header-notifications list-inline ml-auto">
+        <li class="list-inline-item">
+            <div class="quick-menu app-notification dropdown">
+                <span data-toggle="dropdown" aria-haspopup="true" class="d-inline-block" aria-expanded="false">
+                    <span class="app-notification-menu">
+                        <i class="zmdi zmdi-apps zmdi-hc-fw zmdi-hc-lg"></i>
+                        <span>Apps</span>
+                    </span>
+                </span>
+                <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu">
+                    <ul class="jr-list jr-list-half">
+                        <li class="jr-list-item">
+                            <a class="jr-list-link" href="/app/calendar/basic">
+                                <i class="zmdi zmdi-calendar zmdi-hc-fw"></i>
+                                <span class="jr-list-text">Basic</span>
+                            </a>
+                        </li>
+                        <li class="jr-list-item">
+                            <a class="jr-list-link" href="/app/to-do">
+                                <i class="zmdi zmdi-check-square zmdi-hc-fw"></i>
+                                <span class="jr-list-text">To-Do</span>
+                            </a>
+                        </li>
+                        <li class="jr-list-item">
+                            <a class="jr-list-link" href="/app/mail">
+                                <i class="zmdi zmdi-email zmdi-hc-fw"></i>
+                                <span class="jr-list-text">Mail</span>
+                            </a>
+                        </li>
+                        <li class="jr-list-item">
+                            <a class="jr-list-link" href="/app/chat">
+                                <i class="zmdi zmdi-comment zmdi-hc-fw"></i>
+                                <span class="jr-list-text">Chat</span>
+                            </a>
+                        </li>
+                        <li class="jr-list-item">
+                            <a class="jr-list-link" href="/app/contact">
+                                <i class="zmdi zmdi-account-box zmdi-hc-fw"></i>
+                                <span class="jr-list-text">Contact</span>
+                            </a>
+                        </li>
+                        <li class="jr-list-item">
+                            <a class="jr-list-link" href="/">
+                                <i class="zmdi zmdi-plus-circle-o zmdi-hc-fw"></i>
+                                <span class="jr-list-text">Add New</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+        <li class="d-inline-block d-lg-none list-inline-item">
+            <div class="quick-menu nav-searchbox dropdown">
+                <span data-toggle="dropdown" aria-haspopup="true" class="d-inline-block" aria-expanded="false">
+                    <button class="MuiButtonBase-root MuiIconButton-root icon-btn" tabindex="0" type="button">
+                        <span class="MuiIconButton-label">
+                            <i class="zmdi zmdi-search zmdi-hc-fw"></i>
+                        </span>
+                        <span class="MuiTouchRipple-root"></span>
+                    </button>
+                </span>
+                <div tabindex="-1" role="menu" aria-hidden="true" class="p-0 dropdown-menu dropdown-menu-right">
+                    <div class="search-bar right-side-icon bg-transparent search-dropdown">
+                        <div class="form-group">
+                            <input class="form-control border-0" type="search" placeholder="" value="">
+                            <button class="search-icon">
+                                <i class="zmdi zmdi-search zmdi-hc-lg"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="list-inline-item"><div class="quick-menu dropdown">
+            <span data-toggle="dropdown" aria-haspopup="true" class="d-inline-block" aria-expanded="false">
+                <button class="MuiButtonBase-root MuiIconButton-root icon-btn" tabindex="0" type="button">
+                    <span class="MuiIconButton-label">
+                        <i class="flag flag-24 flag-us"></i>
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                </button></span><div tabindex="-1" role="menu" aria-hidden="true" class="w-50 dropdown-menu dropdown-menu-right">
+                    <div class="messages-list language-list scrollbar" style="position: relative; overflow: hidden; width: 100%; height: 230px;">
+                        <div style="position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; overflow: scroll; margin-right: -17px; margin-bottom: -17px;">
+                            <ul class="list-unstyled">
+                                <li class="pointer">
+                                    <div class="d-flex align-items-center">
+                                        <i class="flag flag-24 flag-us"></i>
+                                        <h4 class="mb-0 ml-2">English</h4>
+                                    </div>
+                                </li>
+                                <li class="pointer"><div class="d-flex align-items-center">
+                                    <i class="flag flag-24 flag-cn"></i>
+                                    <h4 class="mb-0 ml-2">Chinese</h4>
+                                </div>
+                            </li>
+                            <li class="pointer">
+                                <div class="d-flex align-items-center">
+                                    <i class="flag flag-24 flag-es"></i>
+                                    <h4 class="mb-0 ml-2">Spanish</h4>
+                                </div>
+                            </li>
+                            <li class="pointer"><div class="d-flex align-items-center">
+                                <i class="flag flag-24 flag-fr"></i>
+                                <h4 class="mb-0 ml-2">French</h4>
+                            </div>
+                        </li>
+                        <li class="pointer">
+                            <div class="d-flex align-items-center">
+                                <i class="flag flag-24 flag-it"></i>
+                                <h4 class="mb-0 ml-2">Italian</h4>
+                            </div>
+                        </li>
+                        <li class="pointer"><div class="d-flex align-items-center">
+                            <i class="flag flag-24 flag-sa"></i>
+                            <h4 class="mb-0 ml-2">Arabic</h4>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="track-horizontal" style="display: none;">
+                <div style="position: relative; display: block; height: 100%; cursor: pointer; border-radius: inherit; background-color: rgba(0, 0, 0, 0.2); width: 0px;"></div>
+            </div>
+            <div style="position: absolute; width: 6px; transition: opacity 200ms ease 0s; opacity: 0; right: 2px; bottom: 2px; top: 2px; border-radius: 3px;">
+                <div style="position: relative; display: block; width: 100%; cursor: pointer; border-radius: inherit; background-color: rgba(0, 0, 0, 0.2); height: 0px;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</li>
+<li class="list-inline-item app-tour">
+    <div class="quick-menu dropdown">
+        <span data-toggle="dropdown" aria-haspopup="true" class="d-inline-block" aria-expanded="false">
+            <button class="MuiButtonBase-root MuiIconButton-root icon-btn" tabindex="0" type="button">
+                <span class="MuiIconButton-label">
+                    <i class="zmdi zmdi-notifications-none icon-alert animated infinite wobble"></i>
+                </span>
+                <span class="MuiTouchRipple-root"></span>
+            </button>
+        </span>
+        <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
+            <div class="jr-card-header d-flex align-items-start align-items-center">
+                <div class="mr-auto">
+                    <h3 class="card-heading"> Notifications</h3>
+                </div>
+                <button class="MuiButtonBase-root MuiIconButton-root icon-btn text-dark" tabindex="0" type="button">
+                    <span class="MuiIconButton-label">
+                        <i class="zmdi zmdi-chevron-down"></i>
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                </button>
+            </div>
+            <div class="messages-list scrollbar" style="position: relative; overflow: hidden; width: 100%; height: 280px;"><div style="position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; overflow: scroll; margin-right: -17px; margin-bottom: -17px;">
+                <ul class="list-unstyled">
+                    <li class="media">
+                        <div class="MuiAvatar-root MuiAvatar-circle  mr-2">
+                            <img alt="/static/media/stella-johnson.7c9e1b58.png" src="/static/media/stella-johnson.7c9e1b58.png" class="MuiAvatar-img">
+                        </div>
+                        <div class="media-body align-self-center">
+                            <p class="sub-heading mb-0">Stella Johnson has recently posted an album</p>
+                            <button class="MuiButtonBase-root MuiButton-root MuiButton-text jr-btn jr-btn-xs mb-0 MuiButton-textSizeSmall MuiButton-sizeSmall" tabindex="0" type="button">
+                                <span class="MuiButton-label">
+                                    <i class="zmdi zmdi-thumb-up text-blue zmdi-hc-fw"></i>
+                                </span>
+                                <span class="MuiTouchRipple-root"></span>
+                            </button>
+                            <span class="meta-date">
+                                <small>4:10 PM</small>
+                            </span>
+                        </div>
+                    </li>
+                    <li class="media">
+                        <div class="MuiAvatar-root MuiAvatar-circle  mr-2">
+                                <img alt="" class="MuiAvatar-img">
+                        </div>
+                        <div class="media-body align-self-center">
+                            <p class="sub-heading mb-0">Alex Brown has shared Martin Guptil's post</p>
+                            <button class="MuiButtonBase-root MuiButton-root MuiButton-text jr-btn jr-btn-xs mb-0 MuiButton-textSizeSmall MuiButton-sizeSmall" tabindex="0" type="button">
+                                <span class="MuiButton-label">
+                                    <i class="zmdi zmdi-comment-text text-grey zmdi-hc-fw"></i>
+                                </span><span class="MuiTouchRipple-root"></span>
+                            </button>
+                            <span class="meta-date">
+                                <small>5:18 PM</small>
+                            </span>
+                        </div>
+                    </li>
+                    <li class="media">
+                        <div class="MuiAvatar-root MuiAvatar-circle  mr-2">
+                            <img alt="/static/media/domnic-brown.aca44ca2.png" src="/static/media/domnic-brown.aca44ca2.png" class="MuiAvatar-img">
+                        </div>
+                        <div class="media-body align-self-center">
+                            <p class="sub-heading mb-0">Domnic Brown has sent you a group invitation for Global Health</p>
+                            <button class="MuiButtonBase-root MuiButton-root MuiButton-text jr-btn jr-btn-xs mb-0 MuiButton-textSizeSmall MuiButton-sizeSmall" tabindex="0" type="button">
+                                <span class="MuiButton-label">
+                                    <i class="zmdi zmdi-card-giftcard text-info zmdi-hc-fw"></i>
+                                </span>
+                                <span class="MuiTouchRipple-root"></span>
+                            </button>
+                            <span class="meta-date">
+                                <small>5:36 PM</small>
+                            </span>
+                        </div>
+                    </li>
+                    <li class="media">
+                        <div class="MuiAvatar-root MuiAvatar-circle  mr-2">
+                            <img alt="/static/media/john-smith.274096ef.png" src="/static/media/john-smith.274096ef.png" class="MuiAvatar-img">
+                        </div>
+                        <div class="media-body align-self-center">
+                            <p class="sub-heading mb-0">John Smith has birthday today</p>
+                            <button class="MuiButtonBase-root MuiButton-root MuiButton-text jr-btn jr-btn-xs mb-0 MuiButton-textSizeSmall MuiButton-sizeSmall" tabindex="0" type="button">
+                                <span class="MuiButton-label">
+                                    <i class="zmdi zmdi-cake text-warning zmdi-hc-fw"></i>
+                                </span>
+                                <span class="MuiTouchRipple-root"></span>
+                            </button>
+                            <span class="meta-date">
+                                <small>5:54 PM</small>
+                            </span>
+                        </div>
+                    </li>
+                    <li class="media">
+                        <div class="MuiAvatar-root MuiAvatar-circle  mr-2">
+                            <img alt="/static/media/jimmy-jo.ad6cb792.jpg" src="/static/media/jimmy-jo.ad6cb792.jpg" class="MuiAvatar-img">
+                        </div>
+                        <div class="media-body align-self-center">
+                            <p class="sub-heading mb-0">Chris has updated his profile picture</p>
+                            <button class="MuiButtonBase-root MuiButton-root MuiButton-text jr-btn jr-btn-xs mb-0 MuiButton-textSizeSmall MuiButton-sizeSmall" tabindex="0" type="button">
+                                <span class="MuiButton-label">
+                                    <i class="zmdi zmdi-account-box-o text-grey zmdi-hc-fw"></i>
+                                </span>
+                                <span class="MuiTouchRipple-root"></span>
+                            </button>
+                            <span class="meta-date">
+                                <small>5:25 PM</small>
+                            </span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="track-horizontal" style="display: none;">
+                <div style="position: relative; display: block; height: 100%; cursor: pointer; border-radius: inherit; background-color: rgba(0, 0, 0, 0.2); width: 0px;"></div>
+            </div>
+            <div style="position: absolute; width: 6px; transition: opacity 200ms ease 0s; opacity: 0; right: 2px; bottom: 2px; top: 2px; border-radius: 3px;">
+                <div style="position: relative; display: block; width: 100%; cursor: pointer; border-radius: inherit; background-color: rgba(0, 0, 0, 0.2); height: 200px; transform: translateY(0px);">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</li>
+<li class="list-inline-item mail-tour">
+    <div class="quick-menu dropdown">
+        <span data-toggle="dropdown" aria-haspopup="true" class="d-inline-block" aria-expanded="false">
+            <button class="MuiButtonBase-root MuiIconButton-root icon-btn" tabindex="0" type="button">
+                <span class="MuiIconButton-label">
+                    <i class="zmdi zmdi-comment-alt-text zmdi-hc-fw"></i>
+                </span>
+                <span class="MuiTouchRipple-root"></span>
+            </button>
+        </span>
+        <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
+            <div class="jr-card-header d-flex align-items-start align-items-center">
+                <div class="mr-auto">
+                    <h3 class="card-heading">Messages</h3>
+                </div>
+                <button class="MuiButtonBase-root MuiIconButton-root icon-btn text-dark" tabindex="0" type="button">
+                    <span class="MuiIconButton-label">
+                        <i class="zmdi zmdi-chevron-down"></i>
+                    </span>
+                    <span class="MuiTouchRipple-root"></span>
+                </button>
+            </div>
+            <div class="messages-list scrollbar" style="position: relative; overflow: hidden; width: 100%; height: 280px;">
+                <div style="position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; overflow: scroll; margin-right: -17px; margin-bottom: -17px;">
+                    <ul class="list-unstyled">
+                        <li class="media">
+                            <div class="user-avatar">
+                                <div class="MuiAvatar-root MuiAvatar-circle">
+                                    <img alt="Domnic Brown" src="/static/media/domnic-brown.aca44ca2.png" class="MuiAvatar-img">
+                                </div>
+                                <span class="badge badge-danger rounded-circle">5</span>
+                            </div>
+                            <div class="media-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h5 class="text-capitalize user-name mb-0">
+                                        <span class="jr-link">Domnic Brown</span>
+                                    </h5>
+                                    <span class="meta-date">
+                                        <small>6:19 PM</small>
+                                    </span>
+                                </div>
+                                <p class="sub-heading">There are many variations of passages of...</p>
+                                <button class="MuiButtonBase-root MuiButton-root MuiButton-text jr-btn jr-btn-xs text-muted" tabindex="0" type="button">
+                                    <span class="MuiButton-label">
+                                        <i class="zmdi zmdi-mail-reply"></i>
+                                        <span>Reply</span>
+                                    </span>
+                                    <span class="MuiTouchRipple-root"></span>
+                                </button>
+                                <button class="MuiButtonBase-root MuiButton-root MuiButton-text jr-btn jr-btn-xs text-muted" tabindex="0" type="button">
+                                    <span class="MuiButton-label">
+                                        <i class="zmdi zmdi-eye"></i>
+                                        <span>Read</span>
+                                    </span>
+                                    <span class="MuiTouchRipple-root"></span>
+                                </button>
+                            </div>
+                        </li>
+                        <li class="media">
+                            <div class="user-avatar">
+                                <div class="MuiAvatar-root MuiAvatar-circle">
+                                    <img alt="John Smith" src="/static/media/jimmy-jo.ad6cb792.jpg" class="MuiAvatar-img">
+                                </div>
+                                <span class="badge badge-danger rounded-circle"></span>
+                            </div>
+                            <div class="media-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h5 class="text-capitalize user-name mb-0">
+                                        <span class="jr-link">John Smith</span>
+                                    </h5>
+                                    <span class="meta-date">
+                                        <small>4:18 PM</small>
+                                    </span>
+                                </div>
+                                <p class="sub-heading">Lorem Ipsum is simply dummy text of the...</p>
+                                <button class="MuiButtonBase-root MuiButton-root MuiButton-text jr-btn jr-btn-xs text-muted" tabindex="0" type="button">
+                                    <span class="MuiButton-label">
+                                        <i class="zmdi zmdi-mail-reply"></i>
+                                        <span>Reply</span>
+                                    </span>
+                                    <span class="MuiTouchRipple-root"></span>
+                                </button>
+                                <button class="MuiButtonBase-root MuiButton-root MuiButton-text jr-btn jr-btn-xs text-muted" tabindex="0" type="button">
+                                    <span class="MuiButton-label">
+                                        <i class="zmdi zmdi-eye"></i>
+                                        <span>Read</span>
+                                    </span>
+                                    <span class="MuiTouchRipple-root"></span>
+                                </button>
+                            </div>
+                        </li>
+                        <li class="media">
+                            <div class="user-avatar">
+                                <div class="MuiAvatar-root MuiAvatar-circle">
+                                    <img alt="John Smith" src="/static/media/john-smith.274096ef.png" class="MuiAvatar-img">
+                                </div>
+                                <span class="badge badge-danger rounded-circle">8</span>
+                            </div>
+                            <div class="media-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h5 class="text-capitalize user-name mb-0">
+                                        <span class="jr-link">John Smith</span>
+                                    </h5>
+                                    <span class="meta-date">
+                                        <small>7:10 PM</small>
+                                    </span>
+                                </div>
+                                <p class="sub-heading">The point of using Lorem Ipsum is that it has a...</p>
+                                <button class="MuiButtonBase-root MuiButton-root MuiButton-text jr-btn jr-btn-xs text-muted" tabindex="0" type="button">
+                                    <span class="MuiButton-label">
+                                        <i class="zmdi zmdi-mail-reply"></i>
+                                        <span>Reply</span>
+                                    </span>
+                                    <span class="MuiTouchRipple-root"></span>
+                                </button>
+                                <button class="MuiButtonBase-root MuiButton-root MuiButton-text jr-btn jr-btn-xs text-muted" tabindex="0" type="button">
+                                    <span class="MuiButton-label">
+                                        <i class="zmdi zmdi-eye"></i>
+                                        <span>Read</span>
+                                    </span>
+                                    <span class="MuiTouchRipple-root"></span>
+                                </button>
+                            </div>
+                        </li>
+                        <li class="media">
+                            <div class="user-avatar">
+                                <div class="MuiAvatar-root MuiAvatar-circle">
+                                    <img alt="alex dolgove" src="" class="MuiAvatar-img">
+                                </div>
+                                <span class="badge badge-danger rounded-circle"></span>
+                            </div>
+                            <div class="media-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h5 class="text-capitalize user-name mb-0">
+                                        <span class="jr-link">alex dolgove</span>
+                                    </h5>
+                                    <span class="meta-date">
+                                        <small>5:10 PM</small>
+                                    </span>
+                                </div>
+                                <p class="sub-heading">It is a long established fact that a reader will...</p>
+                                <button class="MuiButtonBase-root MuiButton-root MuiButton-text jr-btn jr-btn-xs text-muted" tabindex="0" type="button">
+                                    <span class="MuiButton-label">
+                                        <i class="zmdi zmdi-mail-reply"></i>
+                                        <span>Reply</span>
+                                    </span>
+                                    <span class="MuiTouchRipple-root"></span>
+                                </button>
+                                <button class="MuiButtonBase-root MuiButton-root MuiButton-text jr-btn jr-btn-xs text-muted" tabindex="0" type="button">
+                                    <span class="MuiButton-label">
+                                        <i class="zmdi zmdi-eye"></i>
+                                        <span>Read</span>
+                                    </span>
+                                        <span class="MuiTouchRipple-root"></span>
+                                    </button>
+                                </div>
+                                </li>
+                                    <li class="media">
+                                        <div class="user-avatar">
+                                            <div class="MuiAvatar-root MuiAvatar-circle">
+                                                <img alt="Domnic Harris" src="" class="MuiAvatar-img">
+                                            </div>
+                                            <span class="badge badge-danger rounded-circle">3</span>
+                                        </div>
+                                        <div class="media-body">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <h5 class="text-capitalize user-name mb-0">
+                                                    <span class="jr-link">Domnic Harris</span>
+                                                </h5>
+                                                <span class="meta-date">
+                                                    <small>7:35 PM</small>
+                                                </span>
+                                            </div>
+                                            <p class="sub-heading">All the Lorem Ipsum generators on the...</p>
+                                            <button class="MuiButtonBase-root MuiButton-root MuiButton-text jr-btn jr-btn-xs text-muted" tabindex="0" type="button">
+                                                <span class="MuiButton-label">
+                                                    <i class="zmdi zmdi-mail-reply"></i>
+                                                    <span>Reply</span>
+                                                </span>
+                                                <span class="MuiTouchRipple-root"></span>
+                                            </button>
+                                            <button class="MuiButtonBase-root MuiButton-root MuiButton-text jr-btn jr-btn-xs text-muted" tabindex="0" type="button">
+                                                <span class="MuiButton-label">
+                                                    <i class="zmdi zmdi-eye"></i>
+                                                    <span>Read</span>
+                                                </span>
+                                                <span class="MuiTouchRipple-root"></span>
+                                            </button>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="track-horizontal" style="display: none;">
+                                <div style="position: relative; display: block; height: 100%; cursor: pointer; border-radius: inherit; background-color: rgba(0, 0, 0, 0.2); width: 0px;"></div>
+                            </div>
+                            <div style="position: absolute; width: 6px; transition: opacity 200ms ease 0s; opacity: 0; right: 2px; bottom: 2px; top: 2px; border-radius: 3px;">
+                                <div style="position: relative; display: block; width: 100%; cursor: pointer; border-radius: inherit; background-color: rgba(0, 0, 0, 0.2); height: 159px; transform: translateY(0px);"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <div class="ellipse-shape"></div>
+    </div>
+</header>
+</div>
